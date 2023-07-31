@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-require('dotenv').config(); //SE NECESITA PARA QUE MONGO_DB SEA LEIDO DEL ARCHIVO .ENV
 
 mongoose.connect(process.env.MONGO_DB, {
   useUnifiedTopology: true,

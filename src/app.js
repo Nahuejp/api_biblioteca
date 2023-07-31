@@ -1,5 +1,5 @@
 const express = require("express");
-
+const mongoose = require('mongoose');
 const { auth } = require("express-oauth2-jwt-bearer");
 const errorHandler = require("./middlewares/errorHandler");
 
@@ -13,6 +13,10 @@ const autenticacion = auth({
   tokenSigningAlg: "RS256",
 });
 
+mongoose.connect(process.env.MONGO_DB, {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+});
 
 const app = express();
 app.use(express.json());
